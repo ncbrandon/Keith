@@ -15,7 +15,13 @@ export default (() => {
 			<meta name={"description"} content={"Web site created using quarkly.io"} />
 			<link rel={"shortcut icon"} href={"https://uploads.quarkly.io/readme/cra/favicon-32x32.ico"} type={"image/x-icon"} />
 		</Helmet>
-		<Components.Contact />
+		<Components.Contact>
+			<Override slot="text">
+				Keith Buff
+				<br />
+				Water Treatment Consultation and Leak Detection Services
+			</Override>
+		</Components.Contact>
 		<Section padding="80px 0" sm-padding="40px 0">
 			<Override slot="SectionContent" align-items="center" />
 			<Text as="h2" font="--headline3" md-font="--headline2" margin="20px 0 0 0">
