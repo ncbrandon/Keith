@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Keith Buff Water | CCRs, ERMPs, Fire Flow Testing & Water Consulting</title>
+  <meta
+    name="description"
+    content="Keith Buff Water helps water systems with Consumer Confidence Reports, Emergency Response Management Plans, fire flow testing, leak detection, and water treatment consultation."
+  />
+
+  <style>
+    :root {
+      --navy: #0f2f44;
+      --blue: #1b74a6;
+      --light-blue: #eaf6fb;
+      --teal: #24a3a7;
+      --green: #66a95f;
+      --white: #ffffff;
+      --gray: #5d6b73;
+      --light-gray: #f6f9fb;
+      --border: #dce8ee;
+      --shadow: 0 18px 45px rgba(15, 47, 68, 0.14);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 1.25rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(27, 116, 166, 0.24);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.95rem;
+      color: var(--gray);
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 12px 28px rgba(27, 116, 166, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: #155f88;
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--border);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 92px 0 76px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(36, 163, 167, 0.2), transparent 32%),
+        radial-gradient(circle at 85% 5%, rgba(102, 169, 95, 0.18), transparent 30%),
+        linear-gradient(180deg, #f6fbfe 0%, #ffffff 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      bottom: -160px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: rgba(27, 116, 166, 0.08);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: var(--light-blue);
+      color: var(--blue);
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow span {
+      width: 8px;
+      height: 8px;
+      background: var(--teal);
+      border-radius: 999px;
+    }
+
+    h1 {
+      font-size: clamp(2.45rem, 6vw, 4.9rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      max-width: 760px;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      max-width: 680px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .quick-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--gray);
+      font-weight: 700;
+    }
+
+    .quick-contact a {
+      color: var(--blue);
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h2 {
+      font-size: 1.45rem;
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      color: var(--gray);
+    }
+
+    .check {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--light-blue);
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--gray);
+      font-size: 1.08rem;
+    }
+
+    .services {
+      background: var(--white);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 12px 30px rgba(15, 47, 68, 0.06);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: var(--light-blue);
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      color: var(--gray);
+    }
+
+    .split {
+      background: var(--light-gray);
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .feature-panel {
+      background: linear-gradient(135deg, var(--navy), #164b68);
+      color: var(--white);
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .feature-panel::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -90px;
+      bottom: -90px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .feature-panel h2 {
+      position: relative;
+      z-index: 1;
+      font-size: 2.1rem;
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+      margin-bottom: 14px;
+    }
+
+    .feature-panel p {
+      position: relative;
+      z-index: 1;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 1.05rem;
+    }
+
+    .stats {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.45rem;
+    }
+
+    .stat span {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.92rem;
+    }
+
+    .why-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .why-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 16px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .why-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .why-item p {
+      color: var(--gray);
+    }
+
+    .contact {
+      background:
+        linear-gradient(rgba(15, 47, 68, 0.92), rgba(15, 47, 68, 0.92)),
+        radial-gradient(circle at 20% 20%, rgba(36, 163, 167, 0.5), transparent 28%);
+      color: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .contact h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+      margin-bottom: 16px;
+    }
+
+    .contact p {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+    }
+
+    .contact-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .contact-box a {
+      display: block;
+      background: var(--white);
+      color: var(--navy);
+      border-radius: 18px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      font-weight: 900;
+    }
+
+    .contact-box a:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      padding: 28px 0;
+      background: #092131;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.95rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        align-items: flex-start;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .hero-grid,
+      .split-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        padding: 22px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: clamp(2.35rem, 13vw, 3.5rem);
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .quick-contact {
+        display: grid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Keith Buff Water home">
+        <span class="brand-mark">KB</span>
+        <span>Keith Buff Water</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#why">Why Keith</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="btn btn-primary" href="tel:18286616458">Call Now</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span></span> Water System Consulting & Field Services</div>
+
+          <h1>Water system compliance, planning, and field support.</h1>
+
+          <p>
+            Keith Buff Water helps public water systems, businesses, and communities with Consumer Confidence Reports,
+            Emergency Response Management Plans, fire flow testing, leak detection, and water treatment consultation.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:18286616458">Call 1-828-661-6458</a>
+            <a class="btn btn-secondary" href="mailto:keith@keithbuffwater.com">Email Keith</a>
+          </div>
+
+          <div class="quick-contact">
+            <span>Phone: <a href="tel:18286616458">1-828-661-6458</a></span>
+            <span>Email: <a href="mailto:keith@keithbuffwater.com">keith@keithbuffwater.com</a></span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>Reliable support for public water systems</h2>
+
+          <ul class="check-list">
+            <li>
+              <span class="check">✓</span>
+              <span>
+                Annual Consumer Confidence Report support for public water systems.
+              </span>
+            </li>
+
+            <li>
+              <span class="check">✓</span>
+              <span>
+                Emergency Response Management Plan updates and practical planning assistance.
+              </span>
+            </li>
+
+            <li>
+              <span class="check">✓</span>
+              <span>
+                Fire flow testing, leak detection, and water treatment consultation.
+              </span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Services focused on water system compliance, safety, and reliability.</h2>
+
+          <p>
+            Keith Buff Water provides practical help for public water systems and property owners who need
+            dependable reporting support, emergency planning, fire flow testing, leak detection, and water
+            treatment guidance.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">📄</div>
+            <h3>Consumer Confidence Reports</h3>
+            <p>
+              Annual CCR preparation support for public water systems, including organizing required information,
+              reviewing system data, and helping complete clear reports for customers and regulators.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🛡️</div>
+            <h3>Emergency Response Management Plans</h3>
+            <p>
+              Assistance updating Emergency Response Management Plans so water systems have current, practical
+              information ready for emergencies, outages, contamination concerns, and other system events.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🚒</div>
+            <h3>Fire Flow Testing</h3>
+            <p>
+              Fire flow testing support for hydrants and distribution systems to help evaluate available flow,
+              pressure, and system performance for planning, fire protection, and documentation.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">💧</div>
+            <h3>Water Treatment Consultation</h3>
+            <p>
+              Support for treatment questions, process troubleshooting, system review, and recommendations
+              for improving water quality, reliability, and daily operations.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🔎</div>
+            <h3>Leak Detection</h3>
+            <p>
+              Assistance locating possible leaks, narrowing down water loss, and helping determine where
+              repairs or further investigation may be needed.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🛠️</div>
+            <h3>System Problem Solving</h3>
+            <p>
+              Practical guidance for operators, property owners, and water systems facing recurring problems,
+              unclear symptoms, or compliance-related questions.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="split">
+      <div class="container split-grid">
+        <div class="feature-panel">
+          <div>
+            <h2>Experienced guidance without the guesswork.</h2>
+
+            <p>
+              Water system work often involves reporting deadlines, field testing, operational issues, and
+              emergency planning. Keith Buff Water helps make those responsibilities easier to manage with
+              practical, real-world support.
+            </p>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>Clear</strong>
+              <span>Recommendations</span>
+            </div>
+
+            <div class="stat">
+              <strong>Focused</strong>
+              <span>Support</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-list">
+          <div class="why-item">
+            <span class="check">✓</span>
+            <div>
+              <strong>Compliance-focused assistance</strong>
+              <p>
+                Help with annual reports, emergency response planning, and documentation that water systems
+                need to stay organized and prepared.
+              </p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <span class="check">✓</span>
+            <div>
+              <strong>Field-tested water system experience</strong>
+              <p>
+                Support grounded in real water treatment, distribution system, leak detection, and fire flow
+                testing work.
+              </p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <span class="check">✓</span>
+            <div>
+              <strong>Plain-language communication</strong>
+              <p>
+                You get practical explanations and realistic next steps instead of confusing technical runaround.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container contact-grid">
+        <div>
+          <h2>Need help with water system reporting, planning, or field work?</h2>
+
+          <p>
+            Call or email Keith Buff Water to discuss Consumer Confidence Reports, Emergency Response Management
+            Plans, fire flow testing, leak detection, or water treatment consultation.
+          </p>
+
+          <a class="btn btn-primary" href="tel:18286616458">Call Keith</a>
+        </div>
+
+        <div class="contact-box">
+          <a href="tel:18286616458">Phone: 1-828-661-6458</a>
+          <a href="mailto:keith@keithbuffwater.com">Email: keith@keithbuffwater.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>&copy; <span id="year"></span> Keith Buff Water. All rights reserved.</span>
+      <span>CCRs, ERMPs, Fire Flow Testing & Water Consulting</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
